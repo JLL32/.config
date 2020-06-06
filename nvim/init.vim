@@ -34,7 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'Yggdroot/indentLine'
 " Color-Schemes
-  Plug 'morhetz/gruvbox'
+  Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 
