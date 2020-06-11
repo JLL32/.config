@@ -7,7 +7,8 @@
     "json",
     "javascriptreact",
     "typescript.tsx",
-    "graphql"
+    "graphql",
+    "rust"
   ],
   "languageserver": {
     "rust": {
@@ -15,7 +16,6 @@
       "filetypes": ["rust"],
       "rootPatterns": ["Cargo.toml"]
     }
-    
-},
-"clangd.path": "/Users/jll32/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
+  },
+  "clangd.path": "/Users/jll32/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
 }
