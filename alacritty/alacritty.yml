@@ -13,8 +13,13 @@ window:
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 2
-    y: 2
+    x: 10
+    y: 10 
+
+  decorations: none
+
+dynamic_title: true
+
 
 # Base16 Gruvbox dark, hard - alacritty color config
 # Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
