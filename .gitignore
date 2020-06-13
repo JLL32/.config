@@ -1,5 +1,5 @@
 .mono/
-"Microsoft\\VisualStudio Services/"
+Microsoft/VisualStudio Services/
 NuGet/
 coc/
 configstore/
@@ -13,3 +13,5 @@ nvim/.netrwhist
 omf/
 stetic/
 xbuild/
+.DS_Stored/
+.DS_Store
