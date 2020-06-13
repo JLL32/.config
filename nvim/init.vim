@@ -41,6 +41,9 @@ call plug#end()
 " - - - - - - - - - - General - - - - - - - - - -  
 " Essentials
   set shell=/bin/zsh
+  set nocompatible
+  set ttyfast
+  set lazyredraw
   set encoding=UTF-8
   set clipboard+=unnamedplus " Use system clipboard
   filetype plugin indent on  "Enabling Plugin & Indent
