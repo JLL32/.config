@@ -1,0 +1,15 @@
+.mono/
+"Microsoft\\VisualStudio Services/"
+NuGet/
+coc/
+configstore/
+exercism/
+geany/
+gtk-2.0/
+htop/
+kitty/
+neofetch/
+nvim/.netrwhist
+omf/
+stetic/
+xbuild/
