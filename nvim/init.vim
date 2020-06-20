@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ap/vim-css-color' "Displays a preview of colors with CSS 
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
-  Plug 'Yggdroot/indentLine'
+  Plug 'jiangmiao/auto-pairs'
 " Color-Schemes
   Plug 'gruvbox-community/gruvbox'
 call plug#end()
@@ -65,15 +65,6 @@ call plug#end()
   let g:airline_theme='gruvbox'
   set colorcolumn=82
   set t_Co=256
-" Line Indent
-  set conceallevel=1
-  let g:indentLine_setColors = 0
-  let g:indentLine_color_term = 239
-  let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-  let g:indentLine_concealcursor = 'inc'
-  let g:indentLine_conceallevel = 2
-  let g:indentLine_setConceal = 0
-  let g:indentLine_enabled = 1
 
 " - - - - - - - - - - Mappings- - - - - - - - - -  
 " General
@@ -88,16 +79,20 @@ call plug#end()
   map <C-k> <C-W>k
   map <C-h> <C-W>h
   map <C-l> <C-W>l
-  nnoremap <Up> :resize +2<CR> 
-  nnoremap <Down> :resize -2<CR>
-  nnoremap <Left> :vertical resize +2<CR>
-  nnoremap <Right> :vertical resize -2<CR>
 " FZF Navigation
   nmap <leader><leader>f :Files<CR>
   nmap <leader><leader>b :Buffers<CR>
   nmap <leader><leader>w :Windows<CR>
   nmap <leader><leader>e :CocCommand explorer<CR>
   nnoremap <C-p> :GFiles<CR>
+" Auto expanding
+  inoremap (; (<CR>);<C-c>O
+  inoremap (, (<CR>),<C-c>O
+  inoremap {; {<CR>};<C-c>O
+  inoremap {, {<CR>},<C-c>O
+  inoremap [; [<CR>];<C-c>O
+  inoremap [, [<CR>],<C-c>O
+
 " - - - - - - - - - - Conquer of Completion -  -  -  -  -  -  -  -  -  -  
 " TextEdit might fail if hidden is not set.
 set hidden
