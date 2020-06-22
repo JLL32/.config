@@ -33,7 +33,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
-" Color-Schemes
+" Appearance
+  Plug 'ryanoasis/vim-devicons'
   Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
@@ -50,6 +51,7 @@ call plug#end()
   syntax on  "Turning Syntax on
   set autoread wildmode=longest,list,full
   set spell spelllang=en_us
+  let $FZF_DEFAULT_COMMAND = 'rg --hidden -l ""'
   " set backspace=indent,eol,start confirm
   set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab
   set splitbelow splitright 
@@ -71,7 +73,7 @@ call plug#end()
   let g:mapleader = " " " Set leader to spacebar
   inoremap jj <ESC>:w<CR>
   map <C-n> :noh<cr>
-  map <Leader><Leader> :w<CR>
+  map <Leader>w :w<CR>
 " Splits
   map <C-x> :split<CR>
   map <C-v> :vsplit<CR>
