@@ -14,22 +14,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'kana/vim-textobj-user'
-  Plug 'kana/vim-textobj-line'
-  Plug 'kana/vim-textobj-entire'
+    Plug 'vim-airline/vim-airline-themes'
+    let g:airline#extensions#tabline#enabled = 1
   Plug 'airblade/vim-gitgutter'
   Plug 'francoiscabrol/ranger.vim'
     let g:ranger_map_keys = 0
     map <leader><leader>m :Ranger<CR>
   Plug 'rbgrouleff/bclose.vim'
+  Plug 'airblade/vim-rooter'
 " Syntax
   Plug 'sheerun/vim-polyglot' 
-    let g:polyglot_disabled = ['css', 'javascript', 'typescript']
-  Plug 'pangloss/vim-javascript'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
-  Plug 'ap/vim-css-color' "Displays a preview of colors with CSS 
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
@@ -63,7 +57,7 @@ call plug#end()
   set autoread        " Auto load files if they change on disc
 " Appearance
   colorscheme gruvbox
-  set background=dark termguicolors cursorline
+  set background=dark termguicolors 
   let g:airline_theme='gruvbox'
   set colorcolumn=82
   set t_Co=256
