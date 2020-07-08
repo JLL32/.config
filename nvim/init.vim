@@ -12,15 +12,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' } }
   Plug 'junegunn/goyo.vim'
   Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#fnamemod = ':t'
   Plug 'airblade/vim-gitgutter'
   Plug 'francoiscabrol/ranger.vim'
     let g:ranger_map_keys = 0
     map <leader><leader>m :Ranger<CR>
-  Plug 'rbgrouleff/bclose.vim'
   Plug 'airblade/vim-rooter'
 " Syntax
   Plug 'sheerun/vim-polyglot' 
