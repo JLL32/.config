@@ -84,3 +84,5 @@ font:
   # false.
   use_thin_strokes: true
 
+key_bindings:
+  - { key: N, mods: Command, action: SpawnNewInstance }
