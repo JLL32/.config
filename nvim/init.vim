@@ -62,6 +62,7 @@ call plug#end()
   let g:airline_theme='gruvbox'
   set colorcolumn=82
   set t_Co=256
+  let g:netrw_banner = 0
 
 " - - - - - - - - - - Mappings- - - - - - - - - -  
 " General
@@ -69,6 +70,7 @@ call plug#end()
   inoremap jj <ESC>:w<CR>
   map <C-n> :noh<cr>
   map <Leader>w :w<CR>
+  map <leader><leader>q :bdelete<CR>
 " Splits
   map <C-x> :split<CR>
   map <C-v> :vsplit<CR>
