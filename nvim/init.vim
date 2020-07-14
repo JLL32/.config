@@ -25,8 +25,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-rooter'
 " Syntax
   Plug 'sheerun/vim-polyglot' 
-    let g:polyglot_disabled = ['js']
+    let g:polyglot_disabled = ['js', 'ts']
   Plug 'pangloss/vim-javascript'
+  Plug 'leafgarland/typescript-vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
