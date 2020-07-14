@@ -1,8 +1,8 @@
-*
-!.gitignore
-!alacritty/alacritty.yml
-!nvim/init.vim
-!nvim/coc-settings.json
-!fish/config.fish
-!fish/fish_variables
-!ranger/rc.conf
+/*
+!/.gitignore
+!/alacritty/alacritty.yml
+!/nvim/init.vim
+!/nvim/coc-settings.json
+!/fish/config.fish
+!/fish/fish_variables
+!/ranger/rc.conf
