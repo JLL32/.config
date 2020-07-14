@@ -1,17 +1,24 @@
-.mono/
-Microsoft/VisualStudio Services/
-NuGet/
-coc/
-configstore/
-exercism/
-geany/
-gtk-2.0/
-htop/
-kitty/
-neofetch/
-nvim/.netrwhist
-omf/
-stetic/
-xbuild/
-.DS_Stored/
-.DS_Store
+*
+!alacritty.yml
+!init.vim
+!coc-settings.json
+!config.fish
+!fish_variables
+!rc.conf
+# .mono/
+# Microsoft/VisualStudio Services/
+# NuGet/
+# coc/
+# configstore/
+# exercism/
+# geany/
+# gtk-2.0/
+# htop/
+# kitty/
+# neofetch/
+# nvim/.netrwhist
+# omf/
+# stetic/
+# xbuild/
+# .DS_Stored/
+# .DS_Store
