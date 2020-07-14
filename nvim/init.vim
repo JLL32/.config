@@ -76,8 +76,6 @@ call plug#end()
   map <Leader>w :w<CR>
   map <leader><leader>q :bdelete<CR>
 " Splits
-  map <C-x> :split<CR>
-  map <C-v> :vsplit<CR>
   map <C-j> <C-w>j
   map <C-k> <C-W>k
   map <C-h> <C-W>h
