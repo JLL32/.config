@@ -25,12 +25,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-rooter'
 " Syntax
   Plug 'sheerun/vim-polyglot' 
+    let g:polyglot_disabled = ['js']
+  Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'gruvbox-community/gruvbox'
+  Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 
@@ -63,6 +66,7 @@ call plug#end()
   set colorcolumn=82
   set t_Co=256
   let g:netrw_banner = 0
+  set fcs=eob:\  
 
 " - - - - - - - - - - Mappings- - - - - - - - - -  
 " General
