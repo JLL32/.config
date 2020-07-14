@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures'
+let g:netrw_dirhist_7='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures/arrays'
+let g:netrw_dirhist_6='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures'
+let g:netrw_dirhist_5='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures/arrays'
+let g:netrw_dirhist_4='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures'
+let g:netrw_dirhist_3='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures/hash-tables'
+let g:netrw_dirhist_2='/Users/jll32/projects/js-algorithms-data-structures/src/data-structures'
+let g:netrw_dirhist_1='/Users/jll32/projects/rust-in-motion/src'
+let g:netrw_dirhist_0='/Users/jll32/projects/rust-in-motion'
+let g:netrw_dirhist_9='/Users/jll32/.config/ranger'
