@@ -26,7 +26,7 @@ dynamic_title: true
 colors:
   # Default colors
   primary:
-    background: '0x282828'
+    background: '0x1d2021'
     foreground: '0xd5c4a1'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
