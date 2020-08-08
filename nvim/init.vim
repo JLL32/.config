@@ -23,11 +23,12 @@ call plug#begin('~/.vim/plugged')
     let g:ranger_map_keys = 0
     map <leader><leader>m :Ranger<CR>
   Plug 'airblade/vim-rooter'
+  Plug 'mhinz/vim-startify'
+    let g:webdevicons_enable_startify = 1
 " Syntax
   Plug 'sheerun/vim-polyglot' 
-    let g:polyglot_disabled = ['js', 'ts']
+    let g:polyglot_disabled = ['js']
   Plug 'pangloss/vim-javascript'
-  Plug 'leafgarland/typescript-vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
@@ -35,6 +36,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ryanoasis/vim-devicons'
   Plug 'gruvbox-community/gruvbox'
   Plug 'tomasiser/vim-code-dark'
+  Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 
@@ -61,7 +63,7 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-  colorscheme gruvbox
+  colorscheme gruvbox  
   set background=dark termguicolors 
   let g:airline_theme='gruvbox'
   set colorcolumn=82
