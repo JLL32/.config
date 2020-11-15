@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'gruvbox-community/gruvbox'
   Plug 'tomasiser/vim-code-dark'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'lifepillar/vim-gruvbox8'
 call plug#end()
 
 
@@ -63,7 +64,7 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-  colorscheme gruvbox  
+  colorscheme gruvbox
   set background=dark termguicolors 
   let g:airline_theme='gruvbox'
   set colorcolumn=82
