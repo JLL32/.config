@@ -57,7 +57,7 @@ call plug#end()
   set spell spelllang=en_us
   let $FZF_DEFAULT_COMMAND = 'rg --hidden -l ""'
   " set backspace=indent,eol,start confirm
-  set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab
+  set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 noexpandtab
   set splitbelow splitright 
   set nobackup nowritebackup
   set noswapfile
@@ -73,8 +73,9 @@ call plug#end()
   let g:airline_theme='gruvbox'
   set colorcolumn=82
   let g:netrw_banner = 0
-  set fcs=eob:\  
-
+  set fcs=eob:\
+  set list
+  set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
 " - - - - - - - - - - Mappings- - - - - - - - - -  
 " General
   let g:mapleader = " " " Set leader to spacebar
