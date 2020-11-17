@@ -18,7 +18,7 @@ window:
 
   decorations: none
 
-dynamic_title: true
+window.dynamic_title: true
 
 
 # Base16 Gruvbox dark, hard - alacritty color config
