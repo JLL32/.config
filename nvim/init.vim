@@ -38,11 +38,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'gruvbox-community/gruvbox'
   Plug 'tomasiser/vim-code-dark'
   Plug 'NLKNguyen/papercolor-theme'
-<<<<<<< HEAD
   Plug 'sainnhe/gruvbox-material'
-=======
   Plug 'lifepillar/vim-gruvbox8'
->>>>>>> 6a2e153cedb331cc6b4cd3772c998e85fc7022d3
 call plug#end()
 
 
@@ -69,17 +66,11 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-<<<<<<< HEAD
   colorscheme gruvbox 
   let g:gruvbox_contrast_dark = 'hard'
-=======
   colorscheme gruvbox
->>>>>>> 6a2e153cedb331cc6b4cd3772c998e85fc7022d3
   set background=dark termguicolors 
   let g:airline_theme='gruvbox'
-  " colorscheme codedark
-  " set background=dark 
-  " let g:airline_theme='codedark'
   set colorcolumn=82
   let g:netrw_banner = 0
   set fcs=eob:\  
