@@ -32,11 +32,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
+  Plug 'RRethy/vim-illuminate'
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'gruvbox-community/gruvbox'
   Plug 'tomasiser/vim-code-dark'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 
@@ -63,11 +65,14 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-  colorscheme gruvbox  
+  colorscheme gruvbox 
+  let g:gruvbox_contrast_dark = 'hard'
   set background=dark termguicolors 
   let g:airline_theme='gruvbox'
+  " colorscheme codedark
+  " set background=dark 
+  " let g:airline_theme='codedark'
   set colorcolumn=82
-  set t_Co=256
   let g:netrw_banner = 0
   set fcs=eob:\  
 
