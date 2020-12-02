@@ -13,13 +13,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' } }
-  Plug 'junegunn/goyo.vim'
   Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamemod = ':t'
   Plug 'airblade/vim-gitgutter'
-  Plug 'francoiscabrol/ranger.vim'
     let g:ranger_map_keys = 0
     map <leader><leader>m :Ranger<CR>
   Plug 'airblade/vim-rooter'
@@ -27,21 +25,14 @@ call plug#begin('~/.vim/plugged')
     let g:webdevicons_enable_startify = 1
 " Syntax
   Plug 'sheerun/vim-polyglot' 
-    let g:polyglot_disabled = ['js']
-  Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
   Plug 'RRethy/vim-illuminate'
 " Appearance
   Plug 'ryanoasis/vim-devicons'
-  Plug 'gruvbox-community/gruvbox'
-  Plug 'tomasiser/vim-code-dark'
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'sainnhe/gruvbox-material'
-  Plug 'lifepillar/vim-gruvbox8'
+  Plug 'chriskempson/base16-vim'
 call plug#end()
-
 
 " - - - - - - - - - - General - - - - - - - - - -  
 " Essentials
@@ -53,10 +44,11 @@ call plug#end()
   set clipboard+=unnamedplus " Use system clipboard
   filetype plugin indent on  "Enabling Plugin & Indent
   syntax on  "Turning Syntax on
-  set autoread wildmode=longest,list,full
+  set autoread
+  set wildmenu
+  set wildmode=longest:full,full
   set spell spelllang=en_us
   let $FZF_DEFAULT_COMMAND = 'rg --hidden -l ""'
-  " set backspace=indent,eol,start confirm
   set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 noexpandtab
   set splitbelow splitright 
   set nobackup nowritebackup
@@ -66,16 +58,14 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-  colorscheme gruvbox 
-  let g:gruvbox_contrast_dark = 'hard'
-  colorscheme gruvbox
-  set background=dark termguicolors 
-  let g:airline_theme='gruvbox'
+  colorscheme base16-gruvbox-dark-hard
+  set background=dark termguicolors
+  let g:airline_theme='base16'
   set colorcolumn=82
   let g:netrw_banner = 0
-  set fcs=eob:\
-  set list
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
+  set list
+
 " - - - - - - - - - - Mappings- - - - - - - - - -  
 " General
   let g:mapleader = " " " Set leader to spacebar
@@ -94,15 +84,8 @@ call plug#end()
   nmap <leader><leader>w :Windows<CR>
   nmap <leader><leader>e :CocCommand explorer<CR>
   nnoremap <C-p> :GFiles<CR>
-" Auto expanding
-  inoremap (; (<CR>);<C-c>O
-  inoremap (, (<CR>),<C-c>O
-  inoremap {; {<CR>};<C-c>O
-  inoremap {, {<CR>},<C-c>O
-  inoremap [; [<CR>];<C-c>O
-  inoremap [, [<CR>],<C-c>O
 
-" - - - - - - - - - - Conquer of Completion -  -  -  -  -  -  -  -  -  -  
+" - - - - - - - - - - Conquer of Completion -  -  -  -  -  -  -  -  -  -
 " TextEdit might fail if hidden is not set.
 set hidden
 

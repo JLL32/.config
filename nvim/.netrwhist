@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
-let g:netrw_dirhist_9='/Users/jll32/rustlings'
-let g:netrw_dirhist_8='/Users/jll32/rustlings/exercises/variables'
-let g:netrw_dirhist_7='/Users/jll32/rustlings/exercises'
-let g:netrw_dirhist_6='/Users/jll32/rustlings'
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/jll32/.config/nvim'
+let g:netrw_dirhist_7='/Users/jll32/projects/learnrs/src'
+let g:netrw_dirhist_6='/Users/jll32/projects/learnrs'
 let g:netrw_dirhist_5='/Users/jll32/Exercism/c/isogram'
 let g:netrw_dirhist_4='/Users/jll32/Exercism/c/isogram/src'
 let g:netrw_dirhist_3='/Users/jll32/Exercism/c/isogram'
 let g:netrw_dirhist_2='/Users/jll32/Exercism/c/isogram/src'
 let g:netrw_dirhist_1='/Users/jll32/Exercism/c/isogram'
 let g:netrw_dirhist_0='/Users/jll32/projects/guessing_game/src'
+let g:netrw_dirhist_9='/Users/jll32/projects/guessing_game'
