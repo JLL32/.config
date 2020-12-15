@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamemod = ':t'
-  Plug 'airblade/vim-gitgutter'
     let g:ranger_map_keys = 0
     map <leader><leader>m :Ranger<CR>
   Plug 'airblade/vim-rooter'
