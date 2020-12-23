@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
     let g:webdevicons_enable_startify = 1
 " Syntax
   Plug 'sheerun/vim-polyglot' 
+  Plug 'rust-lang/rust.vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
@@ -234,3 +235,20 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Extensions
+let g:coc_global_extensions = [
+      \'coc-markdownlint',
+	  \'coc-css',
+	  \'coc-clangd',
+	  \'coc-rls',
+	  \'coc-rust-analyzer',
+	  \'coc-solargraph',
+	  \'coc-python',
+	  \'coc-prettier',
+	  \'coc-tsserver',
+      \'coc-highlight',
+      \'coc-explorer',
+      \'coc-json', 
+      \'coc-git'
+      \]

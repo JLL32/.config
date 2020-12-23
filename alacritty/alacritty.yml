@@ -67,10 +67,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: 'hack nerd font'
+    family: 'FiraCode Nerd Font'
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Retina
 
     # Point size
   size: 14.0
