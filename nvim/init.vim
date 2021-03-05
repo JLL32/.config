@@ -257,6 +257,6 @@ let g:coc_global_extensions = [
       \'coc-explorer',
       \'coc-json',
       \'coc-git',
-	  \'coc-deno'
+	  \'coc-deno',
       \'coc-go'
 \]
