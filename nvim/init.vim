@@ -10,27 +10,29 @@
 call plug#begin('~/.vim/plugged')
 " Tools
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' } }
-  Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:ranger_map_keys = 0
-    map <leader><leader>m :Ranger<CR>
+  Plug 'itchyny/lightline.vim'
+    let g:lightline = {
+        \ 'colorscheme': 'sonokai',
+        \ }
+
+" Navigation
   Plug 'airblade/vim-rooter'
-	let g:rooter_patterns = ['.git']
+    let g:rooter_patterns = ['.git']
   Plug 'mhinz/vim-startify'
     let g:webdevicons_enable_startify = 1
   Plug 'unblevable/quick-scope'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 " Syntax
   Plug 'sheerun/vim-polyglot' 
-  " Plug 'rust-lang/rust.vim'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary' " gc to comment out
+  Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
   Plug 'RRethy/vim-illuminate'
+
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'chriskempson/base16-vim'
@@ -49,7 +51,7 @@ call plug#end()
   set encoding=UTF-8
   set clipboard+=unnamedplus " Use system clipboard
   filetype plugin indent on  "Enabling Plugin & Indent
-  syntax on  "Turning Syntax on
+  syntax on
   set autoread
   set wildmenu
   set wildmode=longest:full,full
@@ -64,10 +66,8 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-  " colorscheme base16-gruvbox-dark-hard
   colorscheme sonokai
   set background=dark termguicolors
-  let g:airline_theme='sonokai'
   set colorcolumn=82
   let g:netrw_banner = 0
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
@@ -85,12 +85,12 @@ call plug#end()
   map <C-k> <C-W>k
   map <C-h> <C-W>h
   map <C-l> <C-W>l
-" FZF Navigation
-  nmap <leader><leader>f :Files<CR>
-  nmap <leader><leader>b :Buffers<CR>
-  nmap <leader><leader>w :Windows<CR>
   nmap <leader><leader>e :CocCommand explorer<CR>
-  nnoremap <C-p> :GFiles<CR>
+" Telescope
+  nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
 
 " - - - - - - - - - - Conquer of Completion -  -  -  -  -  -  -  -  -  -
 " TextEdit might fail if hidden is not set.
@@ -255,7 +255,8 @@ let g:coc_global_extensions = [
 	  \'coc-tsserver',
       \'coc-highlight',
       \'coc-explorer',
-      \'coc-json', 
+      \'coc-json',
       \'coc-git',
 	  \'coc-deno'
-      \]
+      \'coc-go'
+\]
