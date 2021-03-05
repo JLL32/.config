@@ -20,11 +20,13 @@ call plug#begin('~/.vim/plugged')
     let g:ranger_map_keys = 0
     map <leader><leader>m :Ranger<CR>
   Plug 'airblade/vim-rooter'
+	let g:rooter_patterns = ['.git']
   Plug 'mhinz/vim-startify'
     let g:webdevicons_enable_startify = 1
+  Plug 'unblevable/quick-scope'
 " Syntax
   Plug 'sheerun/vim-polyglot' 
-  Plug 'rust-lang/rust.vim'
+  " Plug 'rust-lang/rust.vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary' " gc to comment out
   Plug 'jiangmiao/auto-pairs'
@@ -32,6 +34,10 @@ call plug#begin('~/.vim/plugged')
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'chriskempson/base16-vim'
+  Plug 'sainnhe/sonokai'
+    let g:sonokai_style = 'atlantis'
+    let g:sonokai_enable_italic = 1
+    let g:sonokai_disable_italic_comment = 1
 call plug#end()
 
 " - - - - - - - - - - General - - - - - - - - - -  
@@ -58,9 +64,10 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
   set autoread        " Auto load files if they change on disc
 " Appearance
-  colorscheme base16-gruvbox-dark-hard
+  " colorscheme base16-gruvbox-dark-hard
+  colorscheme sonokai
   set background=dark termguicolors
-  let g:airline_theme='base16'
+  let g:airline_theme='sonokai'
   set colorcolumn=82
   let g:netrw_banner = 0
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
@@ -249,5 +256,6 @@ let g:coc_global_extensions = [
       \'coc-highlight',
       \'coc-explorer',
       \'coc-json', 
-      \'coc-git'
+      \'coc-git',
+	  \'coc-deno'
       \]
