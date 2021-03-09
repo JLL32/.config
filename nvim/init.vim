@@ -6,7 +6,7 @@
 "           |                               |
 "           ---------------------------------
 
-" - - - - - - - - - - Plugins - - - - - - - - - -  
+" - - - - - - - - - - Plugins - - - - - - - - - -
 call plug#begin('~/.vim/plugged')
 " Tools
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -27,7 +27,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Syntax
-  Plug 'sheerun/vim-polyglot' 
+  Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
@@ -42,7 +42,7 @@ call plug#begin('~/.vim/plugged')
     let g:sonokai_disable_italic_comment = 1
 call plug#end()
 
-" - - - - - - - - - - General - - - - - - - - - -  
+" - - - - - - - - - - General - - - - - - - - - -
 " Essentials
   set shell=/bin/zsh
   set nocompatible
@@ -58,7 +58,7 @@ call plug#end()
   set spell spelllang=en_us
   let $FZF_DEFAULT_COMMAND = 'rg --hidden -l ""'
   set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 noexpandtab
-  set splitbelow splitright 
+  set splitbelow splitright
   set nobackup nowritebackup
   set noswapfile
   set number relativenumber
@@ -73,7 +73,7 @@ call plug#end()
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
   set list
 
-" - - - - - - - - - - Mappings- - - - - - - - - -  
+" - - - - - - - - - - Mappings- - - - - - - - - -
 " General
   let g:mapleader = " " " Set leader to spacebar
   inoremap jj <ESC>:w<CR>
