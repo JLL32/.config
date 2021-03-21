@@ -26,6 +26,36 @@
 "                                              /$$  \ $$
 "                                             |  $$$$$$/
 "                                              \______/
+"
+" leader            : space
+" Ctrl + n          : no highlight
+" leader, leader, q : quite buffer
+" Ctrl + j/k/l/h    : split navigation
+" leader, ee  : coc explorer
+" leader, ff  : files
+" leader, fg  : git files
+" leader, fb  : buffers
+" leader, fh  : help tags
+" [g          : next diagnostic
+" ]g          : previous diagnostic
+" gd          : go to definition
+" gy          : go to type definition
+" gi          : go to implementation
+" gr          : go refrences
+" leader , f  : format selected
+" leader , ac : code action selected
+" leader , qf : quick fix line
+" Ctrl + s    : range selection
+" a / i , f   : around / inner function
+" a / i , c   : around / inner class/interface/struct
+" space, a    : diagnostics
+" space, e.   : extensions
+" space, c.   : commands
+" space, o.   : outline (file symbols)
+" space, s.   : workspace symbols
+" space, j    : default action next
+" space, k    : default action prev
+" space, p.   : resume coc list
 
 " - - - - - - - - - - Plugins - - - - - - - - - -
 call plug#begin('~/.vim/plugged')
