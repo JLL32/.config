@@ -3,8 +3,10 @@
 SETUVAR --export EDITOR:nvim
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_cc:clang\x20\x2dWall\x20\x2dWextra\x20\x2dWerror
-SETUVAR _fish_abbr_l:exa\x20\x2dlab
+SETUVAR _fish_abbr_ir:/Users/ael\x2dhach/goinfre/\x2ebrew/Cellar/ruby/3\x2e0\x2e0_1/bin/irb
+SETUVAR _fish_abbr_l:exa\x20\x2dlabh\x20\x2d\x2dgit\x20\x2d\x2dicons
 SETUVAR _fish_abbr_nv:nvim
+SETUVAR _fish_abbr_t:exa\x20\x2dlabh\x20\x2d\x2dtree\x20\x2d\x2dlevel\x202\x20\x2d\x2dgit\x20\x2d\x2dicons
 SETUVAR fish_color_autosuggestion:585858
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:a1b56c
