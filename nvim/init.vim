@@ -97,7 +97,7 @@ call plug#end()
   set cindent shiftwidth=4 tabstop=4 softtabstop=4
   set nobackup nowritebackup
   set noswapfile
-  set relativenumber
+  set number relativenumber
   set ignorecase      " Ignore case when searching...
   set smartcase       " ...except when search query contains a capital letter
   set splitright splitbelow
