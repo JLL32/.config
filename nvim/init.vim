@@ -26,6 +26,36 @@
 "                                              /$$  \ $$
 "                                             |  $$$$$$/
 "                                              \______/
+"
+" leader            : space
+" Ctrl + n          : no highlight
+" leader, leader, q : quite buffer
+" Ctrl + j/k/l/h    : split navigation
+" leader, ee  : coc explorer
+" leader, ff  : files
+" leader, fg  : git files
+" leader, fb  : buffers
+" leader, fh  : help tags
+" [g          : next diagnostic
+" ]g          : previous diagnostic
+" gd          : go to definition
+" gy          : go to type definition
+" gi          : go to implementation
+" gr          : go refrences
+" leader, f   : format selected
+" leader, ac  : code action selected
+" leader, qf  : quick fix line
+" Ctrl + s    : range selection
+" a / i, f    : around / inner function
+" a / i, c    : around / inner class/interface/struct
+" space, a    : diagnostics
+" space, e    : extensions
+" space, c    : commands
+" space, o    : outline (file symbols)
+" space, s    : workspace symbols
+" space, j    : default action next
+" space, k    : default action prev
+" space, p    : resume coc list
 
 " - - - - - - - - - - Plugins - - - - - - - - - -
 call plug#begin('~/.vim/plugged')
@@ -36,22 +66,18 @@ call plug#begin('~/.vim/plugged')
         \ 'colorscheme': 'gruvbox_material',
         \ }
 
-" Navigation
+  " Navigation
   Plug 'airblade/vim-rooter'
     let g:rooter_patterns = ['.git']
   Plug 'mhinz/vim-startify'
     let g:webdevicons_enable_startify = 1
-  Plug 'unblevable/quick-scope'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Syntax
-  Plug 'blackcauldron7/surround.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'RRethy/vim-illuminate'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Appearance
@@ -66,26 +92,15 @@ call plug#end()
 
 " - - - - - - - - - - General - - - - - - - - - -
 " Essentials
-  set shell=/bin/zsh
-  set nocompatible
-  set ttyfast
-  set lazyredraw
-  set encoding=UTF-8
   set clipboard+=unnamedplus " Use system clipboard
-  filetype plugin indent on  "Enabling Plugin & Indent
-  syntax on
-  set autoread
-  set wildmenu
-  set wildmode=longest:full,full
   set spell spelllang=en_us
-  set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 noexpandtab
-  set splitbelow splitright
+  set cindent shiftwidth=4 tabstop=4 softtabstop=4
   set nobackup nowritebackup
   set noswapfile
   set number relativenumber
   set ignorecase      " Ignore case when searching...
   set smartcase       " ...except when search query contains a capital letter
-  set autoread        " Auto load files if they change on disc
+  set splitright splitbelow
 
 " Appearance
   colorscheme gruvbox-material
@@ -93,7 +108,6 @@ call plug#end()
   let g:gruvbox_material_palette = 'mix'
   let g:gruvbox_material_enable_italic = 1
   set background=dark termguicolors
-  set colorcolumn=82
   let g:netrw_banner = 0
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
   set list
