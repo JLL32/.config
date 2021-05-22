@@ -79,6 +79,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  Plug 'bfrg/vim-cpp-modern'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'arakashic/chromatica.nvim'
+    let g:chromatica#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+	let g:chromatica#enable_at_startup=1
 
 " Appearance
   Plug 'ryanoasis/vim-devicons'
