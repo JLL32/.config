@@ -63,10 +63,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'itchyny/lightline.vim'
     let g:lightline = {
-        \ 'colorscheme': 'gruvbox_material',
+        \ 'colorscheme': 'sonokai',
         \ }
 
-  " Navigation
+" Navigation
   Plug 'airblade/vim-rooter'
     let g:rooter_patterns = ['.git']
   Plug 'mhinz/vim-startify'
@@ -79,27 +79,28 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'octol/vim-cpp-enhanced-highlight'
-  Plug 'bfrg/vim-cpp-modern'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'arakashic/chromatica.nvim'
-    let g:chromatica#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-	let g:chromatica#enable_at_startup=1
 
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'chriskempson/base16-vim'
   Plug 'sainnhe/sonokai'
-    let g:sonokai_style = 'maia'
+    let g:sonokai_style = 'shusia'
     let g:sonokai_enable_italic = 1
     let g:sonokai_disable_italic_comment = 1
   Plug 'sainnhe/gruvbox-material'
+    let g:gruvbox_material_background = 'hard'
+    let g:gruvbox_material_palette = 'mix'
+    let g:gruvbox_material_enable_italic = 1
+  Plug 'pineapplegiant/spaceduck'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'folke/tokyonight.nvim'
+  Plug 'sainnhe/edge'
 call plug#end()
 
 " - - - - - - - - - - General - - - - - - - - - -
 " Essentials
   set clipboard+=unnamedplus " Use system clipboard
-  set spell spelllang=en_us
+  " set spell spelllang=en_us
   set cindent shiftwidth=4 tabstop=4 softtabstop=4
   set nobackup nowritebackup
   set noswapfile
@@ -109,10 +110,7 @@ call plug#end()
   set splitright splitbelow
 
 " Appearance
-  colorscheme gruvbox-material
-  let g:gruvbox_material_background = 'hard'
-  let g:gruvbox_material_palette = 'mix'
-  let g:gruvbox_material_enable_italic = 1
+  colorscheme sonokai
   set background=dark termguicolors
   let g:netrw_banner = 0
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
@@ -139,6 +137,17 @@ call plug#end()
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
 
+" - - - - - - - - - -Tree-Sitter- - - - - - - - - -
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true
+  },
+}
+EOF
 " - - - - - - - - - - CoC- - - - - - - - - -
 so ~/.config/nvim/coc.vim
 
