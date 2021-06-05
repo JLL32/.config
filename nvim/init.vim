@@ -65,7 +65,8 @@ call plug#begin('~/.vim/plugged')
     let g:lightline = {
         \ 'colorscheme': 'sonokai',
         \ }
-
+  Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+	let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
 " Navigation
   Plug 'airblade/vim-rooter'
     let g:rooter_patterns = ['.git']
@@ -113,8 +114,8 @@ call plug#end()
   colorscheme sonokai
   set background=dark termguicolors
   let g:netrw_banner = 0
-  set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
-  set list
+  " set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
+  " set list
 
 " - - - - - - - - - - Mappings- - - - - - - - - -
 " General
