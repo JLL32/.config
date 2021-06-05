@@ -63,10 +63,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'itchyny/lightline.vim'
     let g:lightline = {
-        \ 'colorscheme': 'gruvbox_material',
+        \ 'colorscheme': 'material',
         \ }
+  Plug 'ThePrimeagen/vim-be-good'
+  Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+  " let g:indent_blankline_char = '|'
+
 
   " Navigation
+  " Plug 'sheerun/vim-polyglot'
   Plug 'airblade/vim-rooter'
     let g:rooter_patterns = ['.git']
   Plug 'mhinz/vim-startify'
@@ -88,6 +93,7 @@ call plug#begin('~/.vim/plugged')
     let g:sonokai_enable_italic = 1
     let g:sonokai_disable_italic_comment = 1
   Plug 'sainnhe/gruvbox-material'
+  Plug 'marko-cerovac/material.nvim'
 call plug#end()
 
 " - - - - - - - - - - General - - - - - - - - - -
@@ -103,7 +109,8 @@ call plug#end()
   set splitright splitbelow
 
 " Appearance
-  colorscheme gruvbox-material
+  colorscheme sonokai
+  let g:material_style = 'deep ocean'
   let g:gruvbox_material_background = 'hard'
   let g:gruvbox_material_palette = 'mix'
   let g:gruvbox_material_enable_italic = 1
@@ -111,7 +118,6 @@ call plug#end()
   let g:netrw_banner = 0
   set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
   set list
-
 " - - - - - - - - - - Mappings- - - - - - - - - -
 " General
   let g:mapleader = " " " Set leader to spacebar
@@ -132,6 +138,18 @@ call plug#end()
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+
+" - - - - - - - - - -Tree-Sitter- - - - - - - - - -
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true
+  },
+}
+EOF
 
 " - - - - - - - - - - CoC- - - - - - - - - -
 so ~/.config/nvim/coc.vim

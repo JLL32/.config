@@ -7,8 +7,8 @@ env:
   # You can verify this by checking for the presence of `smso` and `sitm` in
   # `infocmp xterm-256color`.
   TERM: xterm-256color
-# shell:
-#     program: /goinfre/ael-hach/.brew/bin/fish
+shell:
+  program: /usr/local/bin/fish
 
 window:
   # Adds this many blank pixels of padding around the window
