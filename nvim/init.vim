@@ -83,6 +83,7 @@ call plug#begin('~/.vim/plugged')
 
 " Appearance
   Plug 'ryanoasis/vim-devicons'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'chriskempson/base16-vim'
   Plug 'sainnhe/sonokai'
     let g:sonokai_style = 'shusia'
@@ -147,6 +148,11 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
+}
+require'nvim-web-devicons'.setup {
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
 }
 EOF
 " - - - - - - - - - - CoC- - - - - - - - - -
