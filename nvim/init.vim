@@ -36,6 +36,9 @@
 " leader, fg  : live grep
 " leader, fb  : buffers
 " leader, fh  : help tags
+" leader, fo  : old files
+" leader, fgc : git commits
+" leader, fgs : git status
 " [g          : next diagnostic
 " ]g          : previous diagnostic
 " gd          : go to definition
@@ -139,7 +142,7 @@ call plug#end()
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
-  nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits()<cr>
   nnoremap <leader>fgs <cmd>lua require('telescope.builtin').git_status()<cr>
 
 " - - - - - - - - - -Tree-Sitter- - - - - - - - - -
