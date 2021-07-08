@@ -138,6 +138,9 @@ call plug#end()
   nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
+  nnoremap <leader>fgs <cmd>lua require('telescope.builtin').git_status()<cr>
 
 " - - - - - - - - - -Tree-Sitter- - - - - - - - - -
 lua <<EOF
