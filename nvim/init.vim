@@ -33,7 +33,7 @@
 " Ctrl + j/k/l/h    : split navigation
 " leader, ee  : coc explorer
 " leader, ff  : files
-" leader, fg  : git files
+" leader, fg  : live grep
 " leader, fb  : buffers
 " leader, fh  : help tags
 " [g          : next diagnostic
