@@ -118,8 +118,8 @@ call plug#end()
   colorscheme sonokai
   set background=dark termguicolors
   let g:netrw_banner = 0
-  " set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
-  " set list
+  set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
+  set list
 
 " - - - - - - - - - - Mappings- - - - - - - - - -
 " General
