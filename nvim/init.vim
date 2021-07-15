@@ -112,7 +112,6 @@ call plug#end()
   set number relativenumber
   set ignorecase      " Ignore case when searching...
   set smartcase       " ...except when search query contains a capital letter
-  set splitright splitbelow
 
 " Appearance
   colorscheme sonokai
