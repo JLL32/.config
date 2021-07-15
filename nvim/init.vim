@@ -145,6 +145,9 @@ call plug#end()
   nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits()<cr>
   nnoremap <leader>fgs <cmd>lua require('telescope.builtin').git_status()<cr>
 
+" CoC-git
+  nmap [c <Plug>(coc-git-prevchunk)
+  nmap ]c <Plug>(coc-git-nextchunk)
 " - - - - - - - - - -Tree-Sitter- - - - - - - - - -
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
