@@ -64,12 +64,11 @@
 call plug#begin('~/.vim/plugged')
 " Tools
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'itchyny/lightline.vim'
-    let g:lightline = {
-        \ 'colorscheme': 'sonokai',
-        \ }
-  Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
-	let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
+	let g:indent_blankline_char = '│'
+	let g:indent_blankline_use_treesitter = v:true
+    let g:indent_blankline_show_current_context = v:true
 " Navigation
   Plug 'airblade/vim-rooter'
     let g:rooter_patterns = ['.git']
@@ -99,7 +98,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'pineapplegiant/spaceduck'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'folke/tokyonight.nvim'
+  let g:tokyonight_style = "night"
+  let g:tokyonight_italic_functions = 1
   Plug 'sainnhe/edge'
+  Plug 'dracula/vim'
 call plug#end()
 
 " - - - - - - - - - - General - - - - - - - - - -
@@ -114,10 +116,10 @@ call plug#end()
   set smartcase       " ...except when search query contains a capital letter
 
 " Appearance
-  colorscheme sonokai
+  colorscheme tokyonight
   set background=dark termguicolors
   let g:netrw_banner = 0
-  set listchars=tab:‣\ ,extends:›,precedes:‹,nbsp:·,trail:␣
+  set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
   set list
 
 " - - - - - - - - - - Mappings- - - - - - - - - -
@@ -149,6 +151,7 @@ call plug#end()
   nmap ]c <Plug>(coc-git-nextchunk)
 " - - - - - - - - - -Tree-Sitter- - - - - - - - - -
 lua <<EOF
+--vim.g.tokyonight_style = "night"
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -161,6 +164,37 @@ require'nvim-web-devicons'.setup {
  -- globally enable default icons (default to false)
  -- will get overriden by `get_icons` option
  default = true;
+}
+vim.g.indent_blankline_context_patterns = {
+        "declaration", "expression", "pattern", "primary_expression",
+        "statement", "switch_body"
+}
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'tokyonight',
+    component_separators = {'', ''},
+    section_separators = {'', ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
 }
 EOF
 " - - - - - - - - - - CoC- - - - - - - - - -
