@@ -6,9 +6,20 @@
             "command": "rust-analyzer",
             "filetypes": ["rust"],
             "rootPatterns": ["Cargo.toml"]
+        },
+        "elmLS": {
+            "command": "elm-language-server",
+            "filetypes": ["elm"],
+            "rootPatterns": ["elm.json"],
+            "initializationOptions": {
+                "elmPath": "/goinfre/ael-hach/.brew/bin/elm",
+                "elmFormatPath": "/goinfre/ael-hach/.brew/bin/elm-format",
+                "elmTestPath": "elm-test",
+                "elmAnalyseTrigger": "change"
+            }
         }
     },
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
+    "clangd.path": "/Users/ael-hach/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
     "explorer.icon.enableNerdfont": true,
     "explorer.icon.enableVimDevicons": true,
     "prettier.tabWidth": 4,

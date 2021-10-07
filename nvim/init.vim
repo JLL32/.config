@@ -39,6 +39,7 @@
 " leader, fo  : old files
 " leader, fgc : git commits
 " leader, fgs : git status
+" leader, tt  : toggle floaterm
 " [g          : next diagnostic
 " ]g          : previous diagnostic
 " gd          : go to definition
@@ -69,6 +70,7 @@ call plug#begin('~/.vim/plugged')
 	let g:indent_blankline_char = '│'
 	let g:indent_blankline_use_treesitter = v:true
     let g:indent_blankline_show_current_context = v:true
+  Plug 'voldikss/vim-floaterm'
 " Navigation
   Plug 'airblade/vim-rooter'
     let g:rooter_patterns = ['.git']
@@ -114,6 +116,8 @@ call plug#end()
   set number relativenumber
   set ignorecase      " Ignore case when searching...
   set smartcase       " ...except when search query contains a capital letter
+  set splitbelow
+  set splitright
 
 " Appearance
   colorscheme tokyonight
@@ -145,6 +149,9 @@ call plug#end()
   nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>
   nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits()<cr>
   nnoremap <leader>fgs <cmd>lua require('telescope.builtin').git_status()<cr>
+
+" Floaterm
+  nnoremap <leader>tt :FloatermToggle<CR>
 
 " CoC-git
   nmap [c <Plug>(coc-git-prevchunk)
@@ -197,6 +204,9 @@ require'lualine'.setup {
   extensions = {}
 }
 EOF
+"-- neovide
+set guifont=VictorMono\ Nerd\ Font:h16
+set shell=/goinfre/ael-hach/.brew/bin/fish
 " - - - - - - - - - - CoC- - - - - - - - - -
 so ~/.config/nvim/coc.vim
 
