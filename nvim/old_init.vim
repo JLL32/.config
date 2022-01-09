@@ -1,32 +1,3 @@
-
-"     /$$$$$ /$$       /$$ /$$
-"    |__  $$| $$      | $$| $/
-"       | $$| $$      | $$|_/     /$$$$$$$
-"       | $$| $$      | $$       /$$_____/
-"  /$$  | $$| $$      | $$      |  $$$$$$
-" | $$  | $$| $$      | $$       \____  $$
-" |  $$$$$$/| $$$$$$$$| $$$$$$$$ /$$$$$$$/
-"  \______/ |________/|________/|_______/
-"                       /$$
-"                      |__/
-"  /$$$$$$$  /$$    /$$ /$$ /$$$$$$/$$$$
-" | $$__  $$|  $$  /$$/| $$| $$_  $$_  $$
-" | $$  \ $$ \  $$/$$/ | $$| $$ \ $$ \ $$
-" | $$  | $$  \  $$$/  | $$| $$ | $$ | $$
-" | $$  | $$   \  $/   | $$| $$ | $$ | $$
-" |__/  |__/    \_/    |__/|__/ |__/ |__/
-"                                 /$$$$$$  /$$
-"                                /$$__  $$|__/
-"   /$$$$$$$  /$$$$$$  /$$$$$$$ | $$  \__/ /$$  /$$$$$$ 
-"  /$$_____/ /$$__  $$| $$__  $$| $$$$    | $$ /$$__  $$
-" | $$      | $$  \ $$| $$  \ $$| $$_/    | $$| $$  \ $$
-" | $$      | $$  | $$| $$  | $$| $$      | $$| $$  | $$
-" |  $$$$$$$|  $$$$$$/| $$  | $$| $$      | $$|  $$$$$$$
-"  \_______/ \______/ |__/  |__/|__/      |__/ \____  $$
-"                                              /$$  \ $$
-"                                             |  $$$$$$/
-"                                              \______/
-"
 " leader            : space
 " Ctrl + n          : no highlight
 " leader, leader, q : quite buffer
@@ -63,7 +34,12 @@
 " - - - - - - - - - - Plugins - - - - - - - - - -
 call plug#begin('~/.vim/plugged')
 " Tools
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'lukas-reineke/indent-blankline.nvim'
 	let g:indent_blankline_char = '│'
@@ -82,25 +58,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
 
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'chriskempson/base16-vim'
-  Plug 'sainnhe/sonokai'
-    let g:sonokai_style = 'shusia'
-    let g:sonokai_enable_italic = 1
-    let g:sonokai_disable_italic_comment = 1
-  Plug 'sainnhe/gruvbox-material'
-    let g:gruvbox_material_background = 'hard'
-    let g:gruvbox_material_palette = 'mix'
-    let g:gruvbox_material_enable_italic = 1
-  Plug 'pineapplegiant/spaceduck'
-  Plug 'NLKNguyen/papercolor-theme'
   Plug 'folke/tokyonight.nvim'
   let g:tokyonight_style = "night"
   let g:tokyonight_italic_functions = 1
-  Plug 'sainnhe/edge'
   Plug 'dracula/vim'
 call plug#end()
 
@@ -146,12 +111,23 @@ call plug#end()
   nnoremap <leader>fgc <cmd>lua require('telescope.builtin').git_commits()<cr>
   nnoremap <leader>fgs <cmd>lua require('telescope.builtin').git_status()<cr>
 
+" Code Navigation
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
 " CoC-git
   nmap [c <Plug>(coc-git-prevchunk)
   nmap ]c <Plug>(coc-git-nextchunk)
 " - - - - - - - - - -Tree-Sitter- - - - - - - - - -
 lua <<EOF
 --vim.g.tokyonight_style = "night"
+require'lspconfig'.rust_analyzer.setup{}
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -196,7 +172,69 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
+
+EOF
+set completeopt=menu,menuone,noselect
+
+lua <<EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    mapping = {
+      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+  -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+    capabilities = capabilities
+  }
 EOF
 " - - - - - - - - - - CoC- - - - - - - - - -
-so ~/.config/nvim/coc.vim
+" so ~/.config/nvim/coc.vim
 
