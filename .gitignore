@@ -6,3 +6,4 @@
 !ranger/
 !kitty/
 nvim/.netrwhist
+nvim/plugin/packer_compiled.lua
