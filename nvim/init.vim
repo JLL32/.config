@@ -88,22 +88,11 @@ call plug#begin('~/.vim/plugged')
 " Appearance
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'chriskempson/base16-vim'
-  Plug 'sainnhe/sonokai'
-    let g:sonokai_style = 'shusia'
-    let g:sonokai_enable_italic = 1
-    let g:sonokai_disable_italic_comment = 1
-  Plug 'sainnhe/gruvbox-material'
-    let g:gruvbox_material_background = 'hard'
-    let g:gruvbox_material_palette = 'mix'
-    let g:gruvbox_material_enable_italic = 1
-  Plug 'pineapplegiant/spaceduck'
-  Plug 'NLKNguyen/papercolor-theme'
   Plug 'folke/tokyonight.nvim'
   let g:tokyonight_style = "night"
   let g:tokyonight_italic_functions = 1
-  Plug 'sainnhe/edge'
-  Plug 'dracula/vim'
+  Plug 'Mofiqul/dracula.nvim'
+  Plug 'rebelot/kanagawa.nvim'
 call plug#end()
 
 " - - - - - - - - - - General - - - - - - - - - -
