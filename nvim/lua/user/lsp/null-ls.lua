@@ -14,6 +14,7 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
+    formatting.clang_format.with({filetypes = {"c", "cpp", "hpp", "h", "cc", "cs"}}),
     -- diagnostics.flake8
 	},
 })
