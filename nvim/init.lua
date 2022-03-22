@@ -19,3 +19,5 @@ require "user.indentline"
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
+require('rust-tools').setup({})
+require('rust-tools.inlay_hints').set_inlay_hints()
