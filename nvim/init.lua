@@ -21,3 +21,4 @@ require "user.whichkey"
 require "user.autocommands"
 require('rust-tools').setup({})
 require('rust-tools.inlay_hints').set_inlay_hints()
+require "user.neoscroll"
