@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:nvim
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_cc:clang\x20\x2dWall\x20\x2dWextra\x20\x2dWerror
 SETUVAR _fish_abbr_ir:/Users/ael\x2dhach/goinfre/\x2ebrew/Cellar/ruby/3\x2e0\x2e0_1/bin/irb
 SETUVAR _fish_abbr_l:exa\x20\x2dlabh\x20\x2d\x2dgit\x20\x2d\x2dicons
@@ -36,4 +36,5 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/Users/jll32/\x2ecargo/bin
