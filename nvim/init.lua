@@ -40,6 +40,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.cmd.colorscheme 'lunaperche'
+
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -67,6 +69,8 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  'nvim-tree/nvim-tree.lua',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -102,17 +106,16 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',    opts = {} },
-  { 'lewis6991/gitsigns.nvim', opts = {} },
+  { 'folke/which-key.nvim',          opts = {} },
+  { 'lewis6991/gitsigns.nvim',       opts = {} },
 
-  {
-    -- Theme
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'tokyonight-night'
-    end,
-  },
+  -- {
+  -- Theme
+  -- 'folke/tokyonight.nvim',
+  -- priority = 1000,
+  -- config = function()
+  -- end,
+  -- },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',         opts = {} },
@@ -173,6 +176,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+require("nvim-tree").setup()
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -441,7 +448,6 @@ local options = {
   splitbelow = true,                  -- force all horizontal splits to go below current window
   splitright = true,                  -- force all vertical splits to go to the right of current window
   swapfile = false,                   -- creates a swapfile
-  termguicolors = true,               -- set term gui colors (most terminals support this)
   timeoutlen = 300,                   -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                    -- enable persistent undo
   updatetime = 250,                   -- faster completion (4000ms default)
@@ -466,8 +472,10 @@ local options = {
     trail = '·',
     eol = '¬'
   },
-  path = '**'
+  path = '**',
+  gp = 'git grep -n',
 }
+
 
 vim.opt.shortmess:append "c"
 
@@ -478,11 +486,6 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd [[
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
-let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-]]
+-- vim.cmd "vsplit"
+-- vim.cmd "terminal"
+-- vim.cmd "resize -10"
