@@ -70,8 +70,6 @@ require('lazy').setup({
    -- Detect tabstop and shiftwidth automatically
    'tpope/vim-sleuth',
 
-   'nvim-tree/nvim-tree.lua',
-
    -- NOTE: This is where your plugins related to LSP can be installed.
    --  The configuration is done below. Search for lspconfig to find it below.
    {
@@ -156,6 +154,7 @@ require('lazy').setup({
             desc = "Search diagnostic with Google",
          },
       },
+
    },
 
    -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -171,7 +170,57 @@ require('lazy').setup({
    --
    --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
    -- { import = 'custom.plugins' },
+   {
+      "karb94/neoscroll.nvim",
+      config = function()
+         require('neoscroll').setup({ mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>' } })
+      end
+   },
+
+   {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function() require('harpoon').setup({}) end
+   },
+
+   {
+      'echasnovski/mini.files',
+      version = '*',
+      config = function() require('mini.files').setup() end,
+   },
+   {
+      'fatih/vim-go'
+   },
 }, {})
+
+-- basic telescope configuration
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+   local file_paths = {}
+   for _, item in ipairs(harpoon_files.items) do
+      table.insert(file_paths, item.value)
+   end
+
+   require("telescope.pickers").new({}, {
+      prompt_title = "Harpoon",
+      finder = require("telescope.finders").new_table({
+         results = file_paths,
+      }),
+      previewer = conf.file_previewer({}),
+      sorter = conf.generic_sorter({}),
+   }):find()
+end
+
+vim.keymap.set("n", "<leader>hf", function() toggle_telescope(harpoon:list()) end,
+   { desc = "Open harpoon window" })
+vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>h1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>h3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>h4", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end)
 
 -- [[ Basic Keymaps ]]
 
@@ -202,10 +251,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
    group = highlight_group,
    pattern = '*',
 })
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-require("nvim-tree").setup()
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -484,7 +529,7 @@ local options = {
    cursorline = true,                     -- highlight the current line
    number = true,                         -- set numbered lines
    relativenumber = true,                 -- set relative numbered lines
-   numberwidth = 4,                       -- set number column width to 2 {default 4}
+   numberwidth = 3,                       -- set number column width to 2 {default 4}
    signcolumn = "yes",                    -- always show the sign column, otherwise it would shift the text each time
    wrap = false,                          -- display lines as one long line
    scrolloff = 8,                         -- is one of my fav
@@ -533,3 +578,5 @@ if vim.g.neovide then
    vim.g.transparency = 0.8
    vim.g.neovide_background_color = "#0f1117" .. alpha()
 end
+
+vim.api.nvim_set_keymap('n', '<leader>e', ':lua MiniFiles.open()<CR>', { noremap = true, silent = true })
