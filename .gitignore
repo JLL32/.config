@@ -3,5 +3,7 @@
 !fish/
 !ranger/
 !kitty/
+!lf/
+!zed/
 nvim/.netrwhist
 nvim/plugin/packer_compiled.lua
