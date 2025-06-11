@@ -186,6 +186,15 @@
           },
           "keyword": {
             "color": "#9AE399"
+          },
+          "function": {
+            "color": "#B8B5A8"
+          },
+          "function.call": {
+            "color": "#B8B5A8"
+          },
+          "function.method": {
+            "color": "#B8B5A8"
           }
         }
       }
