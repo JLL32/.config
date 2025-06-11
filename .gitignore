@@ -5,5 +5,9 @@
 !kitty/
 !lf/
 !zed/
+zed/conversations
+zed/prompts
+zed/.*
+zed/embeddings
 nvim/.netrwhist
 nvim/plugin/packer_compiled.lua

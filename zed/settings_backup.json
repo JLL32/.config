@@ -1,0 +1,50 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "show_edit_predictions": true,
+  "languages": {
+    "Python": {
+      "show_edit_predictions": false
+    }
+  },
+  "assistant": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3.7-sonnet"
+    },
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3.7-sonnet"
+    },
+    "version": "2"
+  },
+  "features": {
+    "edit_prediction_provider": "copilot",
+    "copilot": true,
+    "copilot_provider": "claude-3.5-sonnet"
+  },
+  "show_copilot_suggestions": true,
+  "buffer_font_size": 13.3,
+  "vim_mode": true,
+  "theme": "Tokyo Night",
+  "terminal": {
+    "shell": {
+      "program": "/opt/homebrew/bin/fish"
+    }
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "off",
+  "show_whitespaces": "all",
+  "context": "Dock",
+  "relative_line_numbers": true,
+  "tab_bar": {
+    "show": false
+  }
+}
