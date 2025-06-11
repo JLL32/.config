@@ -189,10 +189,13 @@ require('lazy').setup({
       version = '*',
       config = function() require('mini.files').setup() end,
    },
-   {
-      'fatih/vim-go'
-   },
+   -- {
+   --    'fatih/vim-go'
+   -- },
+   --
+   "folke/zen-mode.nvim",
 }, {})
+
 
 -- basic telescope configuration
 local conf = require("telescope.config").values
